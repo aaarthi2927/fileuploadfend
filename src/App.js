@@ -4,6 +4,10 @@ import axios from 'axios';
 import {Link, Route, Routes, useParams} from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { Api } from "./Api";
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import TextField from '@mui/material/TextField';
 function App() {
   return(
     <div>
@@ -38,22 +42,31 @@ function FileUpload() {
       })
     }
   return (
-    <div id="upload-box">
-         <Menu/>
-      <form onSubmit={onSubmit}>
-
-      <input type="file" onChange={(event)=>
-                      setFile(event.target.files[0])} />
-      <input type="text" onChange={(event)=>
-                      setheading(event.target.value)} />
-      <input type="text" onChange={(event)=>
-                      setsubheading(event.target.value)} />
-      <input type="text" onChange={(event)=>
-                       setdescription(event.target.value)} />
+    <div>
+     <Menu/>
+     <div className="upload-box">
+       <form onSubmit={onSubmit} >
+        <Card sx={{ minWidth: 545, minHeight: 345, m: 10 }}>
+            <CardContent >
+                <input type="file" onChange={(event)=>
+                        setFile(event.target.files[0])}/>
+                        <br/>
+           <TextField id="Heading" label="Heading" variant="outlined" type="text"  onChange={(event)=>
+                        setheading(event.target.value) } sx={{m: 3 }}/>
+                 <br/>
+        <TextField id="subheading" label="Sub Heading" variant="outlined" type="text" onChange={(event)=>
+                        setsubheading(event.target.value)} sx={{m: 3 }}/>  <br/>
+        <TextField id="Description" label="Description" variant="outlined" type="text" onChange={(event)=>
+                         setdescription(event.target.value)} sx={{m: 3 }}/>  <br/>
+        </CardContent>
+        <CardActions sx={{m: 3 }}>
+        <button type="submit" sx={{m: 3 }}>upload</button>
+        </CardActions>
+      </Card>
+                </form>
+            </div>
+    </div>
    
-      <button type="submit">upload</button>
-      </form>
-          </div>
   );
 }
 function Viewfile()

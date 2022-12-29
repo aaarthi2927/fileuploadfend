@@ -65,7 +65,10 @@ td, th {
   align-items: center;
   justify-content: center;
 margin-top: 20px;
+}
 
+.upload-box1{
+margin: 10px;
 }
 
 .header{
