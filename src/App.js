@@ -56,7 +56,8 @@ function FileUpload() {
                  <br/>
         <TextField id="subheading" label="Sub Heading" variant="outlined" type="text" value={subheading} onChange={(event)=>
                         setsubheading(event.target.value)} sx={{m: 3 }}/>  <br/>
-        <TextField id="Description" label="Description" variant="outlined" type="text" value={description} onChange={(event)=>
+        <TextField id="Description" label="Description" variant="outlined" type="text" value={description}  multiline
+          maxRows={4} onChange={(event)=>
                          setdescription(event.target.value)} sx={{m: 3 }}/>  <br/>
         </CardContent>
         <CardActions sx={{m: 3 }}>
