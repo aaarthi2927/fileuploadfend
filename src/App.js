@@ -102,8 +102,9 @@ return(
 <h1>FileList</h1>
 <table>
   <thead>
-  <tr><th>Filename</th>
-  <th>FileType</th>
+  <tr><th>Heading</th>
+  <th>Sub Heading</th>
+  <th>Description</th>
  </tr></thead>
  <tbody>
  {viewdata}
