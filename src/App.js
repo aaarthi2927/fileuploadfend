@@ -91,9 +91,8 @@ const viewdata=filedata1.map((info,index)=>
 return(
   <tr key={info._id} onClick={()=>Navigate(`/Filelist/${info._id}`)}>
   <td>{info.heading}</td>
-  <td>{info.description}</td>
-  <td>{info.filedata.filename}</td>
-  <td>{info.filedata.mimetype}</td>
+  <td>{info.subheading}</td>
+ <td>{info.description}</td>
  </tr>
    );
   })
