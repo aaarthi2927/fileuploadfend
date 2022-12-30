@@ -51,12 +51,12 @@ function FileUpload() {
                 <input type="file" onChange={(event)=>
                         setFile(event.target.files[0])}/>
                         <br/>
-           <TextField id="Heading" label="Heading" variant="outlined" type="text"  onChange={(event)=>
+           <TextField id="Heading" label="Heading" variant="outlined" type="text" value={heading} onChange={(event)=>
                         setheading(event.target.value) } sx={{m: 3 }}/>
                  <br/>
-        <TextField id="subheading" label="Sub Heading" variant="outlined" type="text" onChange={(event)=>
+        <TextField id="subheading" label="Sub Heading" variant="outlined" type="text" value={subheading} onChange={(event)=>
                         setsubheading(event.target.value)} sx={{m: 3 }}/>  <br/>
-        <TextField id="Description" label="Description" variant="outlined" type="text" onChange={(event)=>
+        <TextField id="Description" label="Description" variant="outlined" type="text" value={description} onChange={(event)=>
                          setdescription(event.target.value)} sx={{m: 3 }}/>  <br/>
         </CardContent>
         <CardActions sx={{m: 3 }}>
