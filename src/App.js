@@ -7,7 +7,8 @@ import { Api } from "./Api";
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import TextField from '@mui/material/TextField';
+import { MdArrowBack} from "react-icons/md";
+import {MdDriveFolderUpload} from "react-icons/md";
 function App() {
   return(
     <div>
@@ -46,22 +47,31 @@ function FileUpload() {
      <Menu/>
      <div className="upload-box">
        <form onSubmit={onSubmit} >
-        <Card sx={{ minWidth: 545, minHeight: 345, m: 10 }}>
+        <Card sx={{ minWidth: 545, minHeight: 345, m: 10 }} >
             <CardContent >
+              <label><h3>File : *</h3></label>
+              <br/>
                 <input type="file" onChange={(event)=>
-                        setFile(event.target.files[0])}/>
+                        setFile(event.target.files[0])} className="upload-box-input" required/>
                         <br/>
-           <TextField id="Heading" label="Heading" variant="outlined" type="text" value={heading} onChange={(event)=>
-                        setheading(event.target.value) } sx={{m: 3 }}/>
+                        <label><h3>Heading : *</h3></label>
+                        <br/>
+           <input value={heading} variant="outlined" type="text" onChange={(event)=>
+                        setheading(event.target.value) } className="upload-box-input" required/>
                  <br/>
-        <TextField id="subheading" label="Sub Heading" variant="outlined" type="text" value={subheading} onChange={(event)=>
-                        setsubheading(event.target.value)} sx={{m: 3 }}/>  <br/>
-        <TextField id="Description" label="Description" variant="outlined" type="text" value={description}  multiline
-          maxRows={4} onChange={(event)=>
-                         setdescription(event.target.value)} sx={{m: 3 }}/>  <br/>
+                 <label><h3>Sub Heading : *</h3></label>
+                 <br/>
+        <input name="subheading" value={subheading} variant="outlined" type="text" onChange={(event)=>
+                        setsubheading(event.target.value)} className="upload-box-input" required/>  <br/>
+                         <label><h3>Description :</h3></label>
+                         <br/>
+                 <textarea
+                   value={description}
+         onChange={(event)=>
+            setdescription(event.target.value)} rows="10" cols="50" className="upload-box-desc"/>
         </CardContent>
-        <CardActions sx={{m: 3 }}>
-        <button type="submit" sx={{m: 3 }}>upload</button>
+        <CardActions >
+        <button type="submit" className="upload-button" > <MdDriveFolderUpload/> Upload</button>
         </CardActions>
       </Card>
                 </form>
@@ -74,6 +84,7 @@ function Viewfile()
 {
   const [filedata1, setFiledata1] =useState([]);
   const Navigate = useNavigate();
+  
   const dataforfile=async()=>{
     try{
       const rep=await axios.get(`${Api}/upload/single`); 
@@ -87,10 +98,12 @@ function Viewfile()
       }
 useEffect(()=>{dataforfile()},[])
 //console.log(filedata);
+var i=1;
 const viewdata=filedata1.map((info,index)=>
 {
 return(
   <tr key={info._id} onClick={()=>Navigate(`/Filelist/${info._id}`)}>
+   <td>{i++}.</td>
   <td>{info.heading}</td>
   <td>{info.subheading}</td>
  <td>{info.description}</td>
@@ -100,10 +113,13 @@ return(
   return(
     <div>
  <Menu/>
-<h1>FileList</h1>
+ <div className="view-table">
+ <h1>FileList</h1>
 <table>
   <thead>
-  <tr><th>Heading</th>
+      <tr>
+      <th>S.No</th>
+        <th>Heading</th>
   <th>Sub Heading</th>
   <th>Description</th>
  </tr></thead>
@@ -111,6 +127,8 @@ return(
  {viewdata}
  </tbody>
 </table>
+ 
+ </div>
     </div>
   )
 }
@@ -190,9 +208,10 @@ function SwitchCase(props) {
 return(
     <div>
        <Menu/>
+       <button onClick={()=>Navigate(`/Filelist`)} className="back-button"> <MdArrowBack/> Back</button>
      <div className="viewdata">
     <SwitchCase value={datalist}/>
-      <button onClick={()=>Navigate(`/Filelist`)}>back</button>
+     
       </div> 
        </div>
   )

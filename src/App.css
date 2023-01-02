@@ -6,6 +6,7 @@ padding: 0px;
   background-color: white;
   color:black;
 }
+
 .App {
   text-align: center;
 }
@@ -48,14 +49,27 @@ padding: 0px;
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
+  font-size:l ;
   width: 100%;
-  margin: 5px;
-}
-
-td, th {
+  margin: 15px;
+  padding: 20px;
   border: 1px solid #dddddd;
+}
+td{
+  border-bottom: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  font-size:large;
+}
+th {
+  border-bottom: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size:x-large;
+}
+.view-table{
+  margin: 10px;
+  padding: 20px;
 }
 .upload-box{
   width: 100%;
@@ -65,12 +79,56 @@ td, th {
   align-items: center;
   justify-content: center;
 margin-top: 20px;
+
 }
 
 .upload-box1{
-margin: 10px;
+  box-shadow: 100px 100px #921515;
+}
+.upload-box-input{
+  width: 25vh;
+  height: 2vh;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid black;
+  border-radius: 1vh;
+  font-size:larger;
+  color: black;
+}
+.upload-box-desc{
+  width: 50vh;
+  height: 10vh;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid black;
+  border-radius: 1vh;
+  font-size:larger;
+  color: black;
 }
 
+.upload-button{
+  width: 10vh;
+  height: 4vh;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid black;
+  border-radius: 1vh;
+  justify-self: center;
+  font-size:larger;
+  color: black;
+}
+.back-button{
+  width: 10vh;
+  height: 4vh;
+  padding: 10px;
+  margin: 10px;
+  border: 3px solid black;
+  border-radius: 1vh;
+  justify-self: center;
+  font-size:larger;
+  color: black;
+margin-right:-10px ;
+}
 .header{
   display:flex;
   align-items:center;
