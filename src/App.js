@@ -269,7 +269,7 @@ export function Categous() {
       }
 useEffect(()=>{dataforfile()},[])
 //console.log(filedata);
-var i=1;
+
 const viewdata=filedata1.map((info,index)=>
 {
  return(
