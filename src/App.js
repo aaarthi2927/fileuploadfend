@@ -27,6 +27,7 @@ function FileUpload() {
   const [heading, setheading] =useState("");
   const [subheading, setsubheading] =useState("");
   const [description, setdescription] =useState("");
+  const Navigate = useNavigate();
       const onSubmit=(e)=>{
       e.preventDefault();
       const data=new FormData();
@@ -36,10 +37,13 @@ function FileUpload() {
       data.append('description',description);
       axios.post(`${Api}/upload/single`,data)
       .then((e)=>{
-        console.log('success')
+        console.log('success');
+        Navigate(`/Filelist`)
       })
       .catch((err)=>{
-        console.log('error',err)
+        console.log('error',err);
+        <h1>{err}</h1>
+
       })
     }
   return (
@@ -48,6 +52,7 @@ function FileUpload() {
      <div className="upload-box">
        <form onSubmit={onSubmit} >
         <Card sx={{ minWidth: 545, minHeight: 345, m: 10 }} >
+        <h3>{}</h3>
             <CardContent >
               <label><h3>File : *</h3></label>
               <br/>
@@ -84,8 +89,7 @@ function Viewfile()
 {
   const [filedata1, setFiledata1] =useState([]);
   const Navigate = useNavigate();
-  
-  const dataforfile=async()=>{
+    const dataforfile=async()=>{
     try{
       const rep=await axios.get(`${Api}/upload/single`); 
         console.log(rep);
@@ -114,7 +118,9 @@ return(
     <div>
  <Menu/>
  <div className="view-table">
+  
  <h1>FileList</h1>
+ 
 <table>
   <thead>
       <tr>
