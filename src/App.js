@@ -254,10 +254,37 @@ export function Home() {
   );
 }
 export function Categous() {
+  const [filedata1, setFiledata1] =useState([]);
+  const dataforfile=async()=>{
+    try{
+      const rep=await axios.get(`${Api}/upload/single`); 
+        console.log(rep);
+        const mydata=rep.data;
+        setFiledata1(mydata);
+    }
+        catch(err){
+          console.log('error',err)
+        }
+      }
+useEffect(()=>{dataforfile()},[])
+//console.log(filedata);
+var i=1;
+const viewdata=filedata1.map((info,index)=>
+{
+return(
+  <tr key={info._id} onClick={()=>Navigate(`/Filelist/${info._id}`)}>
+   <td>{i++}.</td>
+  <td>{info.heading}</td>
+  <td>{info.subheading}</td>
+ <td>{info.description}</td>
+ </tr>
+   );
+  })
   return (
     <div>
       <Menu/>
-     <h1>hi all</h1>
+   
+   {viewdata}
     </div>
   );
 }
