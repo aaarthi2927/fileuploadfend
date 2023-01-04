@@ -272,18 +272,16 @@ useEffect(()=>{dataforfile()},[])
 var i=1;
 const viewdata=filedata1.map((info,index)=>
 {
-return(
-  <tr key={info._id} onClick={()=>Navigate(`/Filelist/${info._id}`)}>
-   <td>{i++}.</td>
+ return(
+  <tr>
   <td>{info.heading}</td>
-  <td>{info.subheading}</td>
- <td>{info.description}</td>
  </tr>
    );
   })
   return (
     <div>
       <Menu/>
+
       {viewdata}
     </div>
   );
