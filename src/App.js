@@ -270,7 +270,7 @@ export function Categous() {
 useEffect(()=>{dataforfile()},[])
 //console.log(filedata);
 
-const viewdata=filedata1.map((info,index)=>
+const viewdata1=filedata1.map((info,index)=>
 {
  return(
   <tr>
@@ -282,7 +282,7 @@ const viewdata=filedata1.map((info,index)=>
     <div>
       <Menu/>
 
-      {viewdata}
+      {viewdata1}
     </div>
   );
 }
