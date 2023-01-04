@@ -107,9 +107,9 @@ var i=1;
 const viewdata=filedata1.map((info,index)=>
 {
 return(
-  <tr key={info._id} onClick={()=>Navigate(`/Filelist/${info._id}`)}>
+  <tr key={info._id}>
    <td>{i++}.</td>
-  <td>{info.heading}</td>
+  <td onClick={()=>Navigate(`/Filelist/${info._id}`)}>{info.heading}</td>
   <td>{info.subheading}</td>
  <td>{info.description}</td>
  </tr>
@@ -255,6 +255,7 @@ export function Home() {
 }
 export function Categous() {
   const [filedata1, setFiledata1] =useState([]);
+  const Navigate = useNavigate();
   const dataforfile=async()=>{
     try{
       const rep=await axios.get(`${Api}/upload/single`); 
@@ -283,8 +284,7 @@ return(
   return (
     <div>
       <Menu/>
-   
-   {viewdata}
+      {viewdata}
     </div>
   );
 }
