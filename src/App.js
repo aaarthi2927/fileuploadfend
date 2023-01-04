@@ -273,15 +273,12 @@ useEffect(()=>{dataforfile()},[])
 const viewdata1=filedata1.map((info,index)=>
 {
  return(
- 
-  <h3>{info.heading}</h3>
-
+   <h3>{info.heading}</h3>
    );
   })
   return (
     <div>
       <Menu/>
-
       {viewdata1}
     </div>
   );
