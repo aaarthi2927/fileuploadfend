@@ -273,9 +273,9 @@ useEffect(()=>{dataforfile()},[])
 const viewdata1=filedata1.map((info,index)=>
 {
  return(
-  <tr>
-  <td>{info.heading}</td>
- </tr>
+ 
+  <h3>{info.heading}</h3>
+
    );
   })
   return (
