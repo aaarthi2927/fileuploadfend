@@ -17,6 +17,7 @@ function App() {
 <Route path="/FileUpload" element={<FileUpload/>}/>
       <Route path="/Filelist"element={<Viewfile/>}/>
       <Route path="/Filelist/:_id"element={<Viewidfile/>}/>
+      <Route path="/Categous"element={<Categous/>}/>
 </Routes>
         </div>
   )
@@ -237,12 +238,22 @@ export function Menu() {
         <Link to="/"><h4>Home</h4></Link>
         <Link to="/FileUpload"><h4>FileUpload</h4></Link>
         <Link to="/Filelist"><h4>Filelist</h4></Link>
+        <Link to="/Categous"><h4>Categous</h4></Link>
       </div>
     </div>
   );
 }
 
+//Categous
 export function Home() {
+  return (
+    <div>
+      <Menu/>
+     <h1>hi all</h1>
+    </div>
+  );
+}
+export function Categous() {
   return (
     <div>
       <Menu/>
